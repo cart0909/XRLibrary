@@ -8,4 +8,3 @@ enable_testing()
 
 add_subdirectory(ThirdParty)
 add_subdirectory(FirstParty)
-add_subdirectory(test)
