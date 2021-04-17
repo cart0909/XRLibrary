@@ -1,0 +1,3 @@
+add_executable(test_storage test_storage.cpp)
+target_link_libraries(test_storage gtest_main Math)
+add_test(test_storage test_storage)
