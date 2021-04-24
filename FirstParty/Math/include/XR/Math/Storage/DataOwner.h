@@ -1,25 +1,36 @@
-#ifndef __XR_MATH_STORAGE_DATA_OWNER__
-#define __XR_MATH_STORAGE_DATA_OWNER__
+#ifndef __XR_MATH_STORAGE_DATA_OWNER_HEADERFILE__
+#define __XR_MATH_STORAGE_DATA_OWNER_HEADERFILE__
+#include <memory>
 
 namespace XR
 {
 namespace Math
 {
 
-template <typename Scalar_, int SIZE>
+template <typename Scalar, int SIZE>
 struct DataOwner
 {
-    using Scalar = Scalar_;
     Scalar data[SIZE] = {Scalar(0)};
     static constexpr int size = SIZE;
+    static constexpr bool resizeable()
+    {
+        return false;
+    }
 };
 
-template <typename Scalar_>
-struct DataOwner<Scalar_, -1>
+template <typename Scalar>
+struct DataOwner<Scalar, -1>
 {
-    using Scalar = Scalar_;
-    Scalar *data = nullptr;
+    std::unique_ptr<Scalar[]> data;
     int size = -1;
+    static constexpr bool resizeable()
+    {
+        return true;
+    }
+    void resize(int size_)
+    {
+        data = std::make_unique<Scalar[]>(size_);
+    }
 };
 
 } // namespace Math
