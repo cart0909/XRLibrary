@@ -30,6 +30,7 @@ struct DataOwner<Scalar, -1>
     void resize(int size_)
     {
         data = std::make_unique<Scalar[]>(size_);
+        size = size_;
     }
 };
 

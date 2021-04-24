@@ -18,4 +18,16 @@ TEST(TestVector, test_vector)
 {
     XR::Math::Vector<double, XR::Math::Dynamic> vd(3);
     XR::Math::Vector<double, 2> v2(2.1, -3.0);
+    XR::Math::Vector<int, 3> v3(-11, 2, 3);
+
+    EXPECT_EQ(vd.size(), 3);
+    EXPECT_EQ(v2.size(), 2);
+    EXPECT_EQ(v3.size(), 3);
+
+    EXPECT_DOUBLE_EQ(v2(0), 2.1);
+    EXPECT_DOUBLE_EQ(v2(1), -3.0);
+
+    EXPECT_EQ(v3(0), -11);
+    EXPECT_EQ(v3(1), 2);
+    EXPECT_EQ(v3(2), 3);
 }
