@@ -1,6 +1,6 @@
-#include <gtest/gtest.h>
 #include <XR/Array.h>
+#include <gtest/gtest.h>
 
-TEST(TestArray, DummyTest) {
-    
+TEST(TestArray, DummyTest)
+{
 }
