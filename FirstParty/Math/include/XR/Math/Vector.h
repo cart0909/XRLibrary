@@ -1,7 +1,7 @@
 #ifndef __XR_MATH_VECTOR_HEADERFILE__
 #define __XR_MATH_VECTOR_HEADERFILE__
-#include <XR/Math/Storage/Storage.h>
 #include <assert.h>
+#include <XR/Math/Storage/Storage.h>
 
 namespace XR
 {
