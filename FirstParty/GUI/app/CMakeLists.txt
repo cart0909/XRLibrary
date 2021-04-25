@@ -1,0 +1,2 @@
+add_executable(app_hello_gui app_hello_gui.cpp)
+target_link_libraries(app_hello_gui SDL2)
