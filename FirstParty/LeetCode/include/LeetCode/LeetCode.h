@@ -3,5 +3,6 @@
 
 #include <LeetCode/Trie.h>
 #include <LeetCode/WordFilter.h>
+#include <LeetCode/LinkedList.h>
 
 #endif

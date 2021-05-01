@@ -1,6 +1,33 @@
 #include <gtest/gtest.h>
 #include <LeetCode/LeetCode.h>
 
+TEST(LeetCode, nextIndex)
+{
+    std::vector<ListNode> nodes(5);
+    for(int i = 0; i < 5; ++i) {
+        nodes[i].val = i;
+        if(i != 4) {
+            nodes[i].next = &nodes[i+1];
+        }
+    }
+
+    print(nextIndex(&nodes[0], 3));
+}
+
+TEST(LeetCode, reverse)
+{
+    std::vector<ListNode> nodes(5);
+    for(int i = 0; i < 5; ++i) {
+        nodes[i].val = i;
+        if(i != 4) {
+            nodes[i].next = &nodes[i+1];
+        }
+    }
+    print(&nodes[0]);
+    auto new_list = reverse(&nodes[0]);
+    print(new_list);
+}
+
 TEST(LeetCode, Implement_Trie_Prefix_Tree_208)
 {
     Trie trie;
