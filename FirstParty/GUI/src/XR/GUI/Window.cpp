@@ -10,6 +10,8 @@ namespace GUI
 
 struct Window::Impl
 {
+    ::Display *display;
+    ::Window window;
 };
 
 Window::Window()
