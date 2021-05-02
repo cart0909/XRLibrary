@@ -4,28 +4,40 @@
 TEST(LeetCode, nextIndex)
 {
     std::vector<ListNode> nodes(5);
-    for(int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i)
+    {
         nodes[i].val = i;
-        if(i != 4) {
-            nodes[i].next = &nodes[i+1];
+        if (i != 4)
+        {
+            nodes[i].next = &nodes[i + 1];
         }
     }
 
-    print(nextIndex(&nodes[0], 3));
+    auto it = nextIndex(&nodes[0], 3);
+    EXPECT_EQ(it->val, 3);
+    EXPECT_EQ(it->next->val, 4);
+    EXPECT_EQ(it->next->next, nullptr);
 }
 
 TEST(LeetCode, reverse)
 {
     std::vector<ListNode> nodes(5);
-    for(int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i)
+    {
         nodes[i].val = i;
-        if(i != 4) {
-            nodes[i].next = &nodes[i+1];
+        if (i != 4)
+        {
+            nodes[i].next = &nodes[i + 1];
         }
     }
-    print(&nodes[0]);
-    auto new_list = reverse(&nodes[0]);
-    print(new_list);
+
+    auto new_head = reverse(&nodes[0]);
+    EXPECT_EQ(new_head->val, 4);
+    EXPECT_EQ(new_head->next->val, 3);
+    EXPECT_EQ(new_head->next->next->val, 2);
+    EXPECT_EQ(new_head->next->next->next->val, 1);
+    EXPECT_EQ(new_head->next->next->next->next->val, 0);
+    EXPECT_EQ(new_head->next->next->next->next->next, nullptr);
 }
 
 TEST(LeetCode, Implement_Trie_Prefix_Tree_208)
